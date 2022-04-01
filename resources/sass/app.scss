@@ -1,0 +1,55 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Quicksand:wght@500&display=swap');
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+// @import '~animate.css/animate.min.css';
+
+
+
+// body{
+//     background-color: #EEEEEE;
+//     font-size: 15px;
+//     font-family: 'Quicksand', sans-serif;
+// }
+
+.bg-roxo{
+    background: #6C4480 !important;
+    transition: all ease-in-out 0.3s;
+
+    &:hover{
+        background: #523361;
+    }
+}
+
+
+.panel-login{
+    background-image: url('../../public/storage/img/login_background.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #fff;
+
+    .logo{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .text{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+}
+
+
+.page-title{
+    font-size:1.52rem;
+    color: #6C4480;
+    font-weight: 600;
+    font-family: 'Fredoka', sans-serif;
+    padding: 10px 0;
+}
