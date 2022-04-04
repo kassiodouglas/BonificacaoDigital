@@ -12,7 +12,9 @@
 
         @include('Pages.movements.table')
 
-        @include('Pages.movements.pagination')
+        @if( $movements->hasPages())
+            @include('Pages.movements.pagination')
+        @endif
 
     </x-slot>
 

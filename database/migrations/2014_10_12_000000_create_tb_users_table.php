@@ -17,18 +17,18 @@ class CreateTbUsersTable extends Migration
             $table->id();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('deleted_at')->nullable();
             $table->string('name');
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('avatar',255)->nullable();
             $table->bigInteger('id_admin')->unsigned()->default(1);#padrao admin
-            $table->bigInteger('id_perfil')->unsigned()->default(2);#padrao usuario
+            $table->bigInteger('id_profile')->unsigned()->default(2);#padrao usuario
             $table->rememberToken();
 
             $table->foreign('id_admin')->references('id')->on('users');
-            $table->foreign('id_perfil')->references('id')->on('perfis');
+            $table->foreign('id_profile')->references('id')->on('profiles');
         });
     }
 

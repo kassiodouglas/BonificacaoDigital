@@ -8,11 +8,13 @@
 
     <x-slot name="slot">
 
-        @include('Pages.employees.filterbar')
+        @include('Pages.users.filterbar')
 
-        @include('Pages.employees.table')
+        @include('Pages.users.table')
 
-        @include('Pages.employees.pagination')
+        @if( $users->hasPages())
+            @include('Pages.users.pagination')
+        @endif
 
     </x-slot>
 

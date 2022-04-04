@@ -13,11 +13,11 @@ class CreateModelPerfisTable extends Migration
      */
     public function up()
     {
-        Schema::create('perfis', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->string('perfil',255)->unique();
+            $table->string('profile',255)->unique();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateModelPerfisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfis');
+        Schema::dropIfExists('profiles');
     }
 }

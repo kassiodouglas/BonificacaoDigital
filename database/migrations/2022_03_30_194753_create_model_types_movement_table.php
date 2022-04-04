@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModelTiposMovimentacaoTable extends Migration
+class CreateModelTypesMovementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateModelTiposMovimentacaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_movimentacao', function (Blueprint $table) {
+        Schema::create('types_movement', function (Blueprint $table) {
             $table->id();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->string('tipo')->unique();
+            $table->string('type')->unique();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateModelTiposMovimentacaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_movimentacao');
+        Schema::dropIfExists('types_movement');
     }
 }

@@ -2,17 +2,22 @@
 
 namespace App\Models;
 
+use App\Models\Movimentacao;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable , SoftDeletes;
 
     protected $table = 'users';
+
+    protected $appends  = ['is_admin'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -24,8 +29,9 @@ class User extends Authenticatable
         'email',
         'login',
         'password',
-        'id_perfil',
-        'id_admin'
+        'id_profile',
+        'id_admin',
+        'is_admin',
     ];
 
     /**
@@ -38,6 +44,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+
     /**
      * The attributes that should be cast.
      *
@@ -45,5 +53,28 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'isAdmin' => 'boolean',
     ];
+
+    public function getIsAdminAttribute()
+    {
+        return ($this->id_profile == 1) ? true : false;
+    }
+
+    public function perfil()
+    {
+        return $this->hasOne(Profile::class, 'id', 'id_profile');
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(User::class, 'id', 'id_admin');
+    }
+
+    public function getMovimentacoesAttribute()
+    {
+        return Movement::with('type_movement')->where('id_user',$this->id)->get();
+    }
+
+
 }

@@ -1,4 +1,4 @@
-@include('Components.modals.new_employe')
+@include('Components.modals.new_user')
 @include('Components.modals.new_movement')
 
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
@@ -41,9 +41,11 @@
                                 {{ __('Listagem') }}
                             </x-dropdown-link>
 
+                            @if(Auth::user()->is_admin)
                             <x-dropdown-link :href="route('movements')" data-bs-toggle="modal" data-bs-target="#modal_new_movement">
                                 {{ __('Nova movimentação') }}
                             </x-dropdown-link>
+                            @endif
 
                         </x-slot>
 
@@ -73,9 +75,11 @@
                                 {{ __('Listagem') }}
                             </x-dropdown-link>
 
+                            @if(Auth::user()->is_admin)
                             <x-dropdown-link  :href="route('employees')" data-bs-toggle="modal" data-bs-target="#modal_new_employee">
                                 {{ __('Novo funcionário') }}
                             </x-dropdown-link>
+                            @endif
 
                         </x-slot>
 
@@ -100,10 +104,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-
-                        <x-dropdown-link :href="route('employees')" onclick="">
-                                {{ __('Configurações') }}
-                        </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
