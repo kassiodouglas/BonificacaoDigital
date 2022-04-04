@@ -173,7 +173,7 @@ class ControllerUser extends Controller
 
 
     /**
-     * Marca como deletado o usuario e suas movomentacoes
+     * Marca como deletado o usuario e suas movimentacoes
      *
      * @param Request $request
      * @param integer $id

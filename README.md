@@ -8,8 +8,14 @@ Esta aplicação tem por finalidade criar um painel administrativo, para control
 
 ## Instalação
 ---
+Crie um banco MYSQL com o nome **'bonificao_digital'**, e o configure no arquivo '.env' com as informações do mesmo.
 
-Configure o arquivo '.env' com as informações do banco de dados.
+Rode os comandos para instalar as dependências
+```
+composer install
+npm i 
+npm run dev
+```
 
 Rode o comando para subir as tabelas
 ```
@@ -22,6 +28,11 @@ Rode o comando para subir os registros
 php artisan db:seed
 ```
 
+Rode o comando para subir o servidor
+```
+php artisan serve
+```
+
 OBS: O comando de *seed* cria um usuário **admin** com a senha **admin**, outros 50 usuários e 150 movimentações para testes. A senha padrão de novos usuários é **123456**;
 <br>
 
@@ -30,6 +41,7 @@ OBS: O comando de *seed* cria um usuário **admin** com a senha **admin**, outro
 
 ## Recursos utilizados
 ---
+* **PHP 8**: versão do php utilizado;
 * **Laravel Breeze**: para controle de login e autenticação;
 * **Notiflix**: biblioteca JS para criar notificações, loaders e confirmações de ações;
 * **Bootstrap**: biblioteca frontend com componentes e designs prontos;
