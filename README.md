@@ -1,3 +1,4 @@
+## [Teste técnico]
 # Bonificação Digital V1.0.0
 
 Esta aplicação tem por finalidade criar um painel administrativo, para controle da moeda digital de uma empresa, esta moeda será ganha quando os funcionários completarem metas ou tarefas especificas. Está moeda poderá ser trocada por produtos e serviços parceiros da empresa. Os administradores podem criar e editar usuários e suas movimentações. Usuários só podem ver seu saldo e suas movimentações.
